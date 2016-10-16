@@ -1,3 +1,58 @@
+" To register config update the path the the .vimrc 
+" Example : 
+"   :source ~/repos/vim/.vimrc
+" dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+" Required:
+set runtimepath+=/home/tjohnson4/.vim/autoload/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin('/home/tjohnson4/.vim/autoload')
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+" Add or remove your plugins here:
+"call dein#add('chooh/brightscript.vim')
+call dein#add('scrooloose/nerdtree')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('bling/vim-airline')
+call dein#add('bling/vim-bufferline')
+call dein#add('airblade/vim-gitgutter')
+"call dein#add('crooloose/syntastic')
+call dein#add('rking/ag.vim')
+call dein#add('groenewege/vim-less')
+call dein#add('suan/vim-instant-markdown')
+call dein#add('mxw/vim-jsx')
+call dein#add('Valloric/YouCompleteMe')
+call dein#add('othree/html5.vim')
+call dein#add('nikvdp/ejs-syntax')
+call dein#add('lilydjwg/colorizer')
+call dein#add('SirVer/ultisnips')
+call dein#add('honza/vim-snippets')
+call dein#add('rizzatti/dash.vim')
+
+" You can specify revision/branch/tag.
+"call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
 " Editor Config
 syntax on
 
@@ -14,19 +69,19 @@ set fileencodings=utf-8
 scriptencoding utf-8
 
 " syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 " mouse support 
 set mouse=a
 
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 " UtilSnips
 let g:UltiSnipsExpandTrigger="<C-t>"
@@ -94,57 +149,3 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
-
-if has('vim_starting')
-if &compatible
- set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" My Bundles here:
-" Refer to |:NeoBundle-examples|.
-" Note: You don't set neobundle setting in .gvimrc!
-
-" Language Plugins
-NeoBundle 'chooh/brightscript.vim'
-
-" Git Plugin
-NeoBundle 'tpope/vim-fugitive'
-
-" Tools
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'bling/vim-bufferline'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'suan/vim-instant-markdown'
-NeoBundle 'mxw/vim-jsx'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'othree/html5.vim'
-NeoBundle 'nikvdp/ejs-syntax'
-NeoBundle 'lilydjwg/colorizer'
-NeoBundle 'SirVer/ultisnips'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'rizzatti/dash.vim'
-
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-filetype plugin on
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
